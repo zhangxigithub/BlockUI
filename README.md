@@ -36,11 +36,17 @@ UIActionSheet *action = [[UIActionSheet alloc] initWithTitle:@"title"
 ```
 #import "BUIControl.h"
 UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-[button handleControlEvent:UIControlEventTouchUpInside withBlock:^{
+[button handleControlEvent:UIControlEventTouchUpInside withBlock:^(id sender){
     NSLog(@"in");
 }];
-[button handleControlEvent:UIControlEventTouchUpOutside withBlock:^{
+[button handleControlEvent:UIControlEventTouchUpOutside withBlock:^(id sender){
     NSLog(@"out");
 }];
 [button removeHandlerForEvent:UIControlEventTouchUpInside];
+
+UISegmentedControl *seg = [[UISegmentedControl alloc] initWithItems:@[@"1",@"2",@"3"]];
+
+[seg handleControlEvent:UIControlEventValueChanged withBlock:^(id sender) {
+    NSLog(@"%@",sender);
+}];
 ```
