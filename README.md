@@ -7,7 +7,7 @@ UIControl use block
 ##support##
 * UIAlertView
 * UIActionSheet
-* UIButton
+* UIControl
 
 ##use##
 
