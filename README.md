@@ -13,7 +13,7 @@ UIControl use block
 
 ```
 //#import "BUIAlertView.h"
-BUIAlertView *alert = [[BUIAlertView alloc] initWithTitle:@"title"
+UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"title"
                                                   message:@"message"
                                                  delegate:self
                                         cancelButtonTitle:@"ok"
@@ -24,7 +24,7 @@ BUIAlertView *alert = [[BUIAlertView alloc] initWithTitle:@"title"
 ```
 ```
 //#import "BUIActionSheet.h"
-BUIActionSheet *action = [[BUIActionSheet alloc] initWithTitle:@"title"
+UIActionSheet *action = [[UIActionSheet alloc] initWithTitle:@"title"
                                                       delegate:nil
                                              cancelButtonTitle:@"ok"
                                         destructiveButtonTitle:nil
