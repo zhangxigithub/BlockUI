@@ -12,7 +12,7 @@ UIControl use block
 ##use##
 
 ```
-//#import "BUIAlertView.h"
+#import "BUIAlertView.h"
 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"title"
                                                   message:@"message"
                                                  delegate:self
@@ -23,7 +23,7 @@ UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"title"
 }];
 ```
 ```
-//#import "BUIActionSheet.h"
+#import "BUIActionSheet.h"
 UIActionSheet *action = [[UIActionSheet alloc] initWithTitle:@"title"
                                                       delegate:nil
                                              cancelButtonTitle:@"ok"
@@ -34,7 +34,7 @@ UIActionSheet *action = [[UIActionSheet alloc] initWithTitle:@"title"
 }];
 ```
 ```
-//#import "BUIButton.h"
+#import "BUIControl.h"
 UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
 [button handleControlEvent:UIControlEventTouchUpInside withBlock:^{
     NSLog(@"in");
