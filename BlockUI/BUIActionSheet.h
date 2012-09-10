@@ -8,20 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BUIActionSheet : UIActionSheet<UIActionSheetDelegate>
+@interface UIActionSheet(BUIActionSheet)<UIActionSheetDelegate>
 
-@property(nonatomic,assign) id oldDelegate;
 
-@property(nonatomic,copy) void (^completionHandler)(NSInteger buttonIndex);
+-(void)showInView:(UIView *)view withCompletionHandler:(void (^)(NSInteger buttonIndex))completionHandler;
 
--(void)showInView:(UIView *)view
-withCompletionHandler:(void (^)(NSInteger buttonIndex))completionHandler;
+-(void)showFromToolbar:(UIToolbar *)view withCompletionHandler:(void (^)(NSInteger buttonIndex))completionHandler;
 
--(void)showFromToolbar:(UIToolbar *)view
- withCompletionHandler:(void (^)(NSInteger buttonIndex))completionHandler;
-
--(void)showFromTabBar:(UITabBar *)view
-withCompletionHandler:(void (^)(NSInteger buttonIndex))completionHandler;
+-(void)showFromTabBar:(UITabBar *)view withCompletionHandler:(void (^)(NSInteger buttonIndex))completionHandler;
 
 -(void)showFromRect:(CGRect)rect
              inView:(UIView *)view

@@ -8,11 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BUIAlertView : UIAlertView<UIAlertViewDelegate>
-
-@property(nonatomic,assign) id oldDelegate;
-
-@property(nonatomic,copy) void (^completionHandler)(NSInteger buttonIndex);
+@interface UIAlertView(BUIAlertView)<UIAlertViewDelegate>
 
 -(void)showWithCompletionHandler:(void (^)(NSInteger buttonIndex))completionHandler;
 

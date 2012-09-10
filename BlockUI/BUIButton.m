@@ -9,7 +9,6 @@
 #import "BUIButton.h"
 @implementation UIButton (UIBlockButton)
 
-static char UIButtonBlockKey;
 static char OperationKey;
 
 

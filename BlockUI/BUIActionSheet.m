@@ -7,14 +7,22 @@
 //
 
 #import "BUIActionSheet.h"
+#import <objc/runtime.h>
 
-@implementation BUIActionSheet
+@implementation UIActionSheet(BUIActionSheet)
 
+const char oldDelegateKey;
+const char completionHandlerKey;
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    self.completionHandler(buttonIndex);
-    self.delegate = self.oldDelegate;
+    void (^theCompletionHandler)(NSInteger buttonIndex) = objc_getAssociatedObject(self, &completionHandlerKey);
+    
+    if(theCompletionHandler == nil)
+        return;
+    
+    theCompletionHandler(buttonIndex);
+    self.delegate = objc_getAssociatedObject(self, &oldDelegateKey);
 }
 
 
@@ -22,27 +30,34 @@
 {
     if(completionHandler != nil)
     {
-        self.oldDelegate = self.delegate;
+        
+        id oldDelegate = objc_getAssociatedObject(self, &oldDelegateKey);
+        if(oldDelegate == nil)
+        {
+            objc_setAssociatedObject(self, &oldDelegateKey, oldDelegate, OBJC_ASSOCIATION_ASSIGN);
+        }
+        
+        oldDelegate = self.delegate;
         self.delegate = self;
-        self.completionHandler = completionHandler;
+        objc_setAssociatedObject(self, &completionHandlerKey, completionHandler, OBJC_ASSOCIATION_COPY);
     }
 }
 -(void)showInView:(UIView *)view
-    withCompletionHandler:(void (^)(NSInteger buttonIndex))completionHandler
+withCompletionHandler:(void (^)(NSInteger buttonIndex))completionHandler
 {
     [self config:completionHandler];
     [self showInView:view];
 }
 
 -(void)showFromToolbar:(UIToolbar *)view
-         withCompletionHandler:(void (^)(NSInteger buttonIndex))completionHandler
+ withCompletionHandler:(void (^)(NSInteger buttonIndex))completionHandler
 {
     [self config:completionHandler];
     [self showFromToolbar:view];
 }
 
 -(void)showFromTabBar:(UITabBar *)view
-        withCompletionHandler:(void (^)(NSInteger buttonIndex))completionHandler
+withCompletionHandler:(void (^)(NSInteger buttonIndex))completionHandler
 {
     [self config:completionHandler];
     [self showFromTabBar:view];
@@ -51,7 +66,7 @@
 -(void)showFromRect:(CGRect)rect
              inView:(UIView *)view
            animated:(BOOL)animated
-      withCompletionHandler:(void (^)(NSInteger buttonIndex))completionHandler
+withCompletionHandler:(void (^)(NSInteger buttonIndex))completionHandler
 {
     [self config:completionHandler];
     [self showFromRect:rect inView:view animated:animated];
@@ -59,7 +74,7 @@
 
 -(void)showFromBarButtonItem:(UIBarButtonItem *)item
                     animated:(BOOL)animated
-               withCompletionHandler:(void (^)(NSInteger buttonIndex))completionHandler
+       withCompletionHandler:(void (^)(NSInteger buttonIndex))completionHandler
 {
     [self config:completionHandler];
     [self showFromBarButtonItem:item animated:animated];
