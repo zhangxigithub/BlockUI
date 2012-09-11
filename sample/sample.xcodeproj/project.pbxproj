@@ -284,6 +284,7 @@
 				3397B12315FE0DE1001D2D28 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
