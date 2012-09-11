@@ -28,8 +28,8 @@
     //***************
     UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [viewController.view addSubview:button];
-    button.frame = CGRectMake(50, 50, 220, 44);
-    [button setTitle:@"show alert view" forState:UIControlStateNormal];
+    button.frame = CGRectMake(50, 50, 100, 44);
+    [button setTitle:@"alert view" forState:UIControlStateNormal];
     
     [button handleControlEvent:UIControlEventTouchUpInside withBlock:^(id sender) {
        
@@ -41,6 +41,27 @@
         [alert showWithCompletionHandler:^(NSInteger buttonIndex) {
             NSLog(@"%d",buttonIndex);
         }];
+        
+    }];
+    
+    
+    //***************
+    //***************
+    UIButton *button2 = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [viewController.view addSubview:button2];
+    button2.frame = CGRectMake(170, 50, 100, 44);
+    [button2 setTitle:@"action sheet" forState:UIControlStateNormal];
+    
+    [button2 handleControlEvent:UIControlEventTouchUpInside withBlock:^(id sender) {
+        UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:nil
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"cancel"
+                                             destructiveButtonTitle:nil
+                                                  otherButtonTitles:@"item1",@"item2",nil];
+        [sheet showInView:viewController.view withCompletionHandler:^(NSInteger buttonIndex) {
+            NSLog(@"action:%d",buttonIndex);
+        }];
+        
         
     }];
     
