@@ -18,6 +18,7 @@ UIControl use block
 * iOS 4.0 or later
 
 ##Use##
+![screen](http://2.zxapi.sinaapp.com/BlockUIscreen.png)
 
 ```
 #import "BlockUI.h"
