@@ -14,6 +14,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
     UIViewController *viewController = [[UIViewController alloc] init];
@@ -104,6 +105,7 @@
     //***************
     
     UIDatePicker *datePicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0, 244, 0, 0)];
+
     [viewController.view addSubview:datePicker];
     [datePicker handleControlEvent:UIControlEventValueChanged withBlock:^(id sender) {
         UIDatePicker *picker = sender;
@@ -111,6 +113,16 @@
     }];
     
     
+    //***************
+    //***************
+
+    [NSObject perform:^{
+        NSLog(@"start");
+        [NSThread sleepForTimeInterval:1];
+        NSLog(@"end");
+    } withCompletionHandler:^{
+        NSLog(@"finished");
+    }];
     
     return YES;
 }
