@@ -10,9 +10,15 @@
 #import <objc/runtime.h>
 
 
-@interface NSObject(BNSObject)
+@interface NSObject(ZXObject)
 
+//perform block1 in main thread,when finished perform block2 in background
 +(void)perform:(void(^)())block1 withCompletionHandler:(void (^)())block2;
 -(void)perform:(void(^)())block1 withCompletionHandler:(void (^)())block2;
+
+//use ZXObject to deliver param(copy)
+-(void)setZXObject:(id)obj;
+-(id)getZXObject;
+
 
 @end

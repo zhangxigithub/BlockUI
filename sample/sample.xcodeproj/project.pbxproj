@@ -15,7 +15,7 @@
 		3397B11815FE0DE1001D2D28 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3397B11715FE0DE1001D2D28 /* AppDelegate.m */; };
 		3397B12D15FE0DF9001D2D28 /* BUIControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 3397B12A15FE0DF9001D2D28 /* BUIControl.m */; };
 		3397B13015FE0E7B001D2D28 /* BUIView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3397B12F15FE0E7B001D2D28 /* BUIView.m */; };
-		43EE156D1609CF6F00E2CF44 /* BNSObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 43EE156C1609CF6F00E2CF44 /* BNSObject.m */; };
+		43EE156D1609CF6F00E2CF44 /* ZXObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 43EE156C1609CF6F00E2CF44 /* ZXObject.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,8 +34,8 @@
 		3397B12E15FE0E7B001D2D28 /* BUIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BUIView.h; sourceTree = "<group>"; };
 		3397B12F15FE0E7B001D2D28 /* BUIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BUIView.m; sourceTree = "<group>"; };
 		3397B13115FE1137001D2D28 /* BlockUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlockUI.h; sourceTree = "<group>"; };
-		43EE156B1609CF6F00E2CF44 /* BNSObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNSObject.h; sourceTree = "<group>"; };
-		43EE156C1609CF6F00E2CF44 /* BNSObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNSObject.m; sourceTree = "<group>"; };
+		43EE156B1609CF6F00E2CF44 /* ZXObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXObject.h; sourceTree = "<group>"; };
+		43EE156C1609CF6F00E2CF44 /* ZXObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXObject.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,8 +104,8 @@
 		3397B12415FE0DF9001D2D28 /* BlockUI */ = {
 			isa = PBXGroup;
 			children = (
-				43EE156B1609CF6F00E2CF44 /* BNSObject.h */,
-				43EE156C1609CF6F00E2CF44 /* BNSObject.m */,
+				43EE156B1609CF6F00E2CF44 /* ZXObject.h */,
+				43EE156C1609CF6F00E2CF44 /* ZXObject.m */,
 				3397B12915FE0DF9001D2D28 /* BUIControl.h */,
 				3397B12A15FE0DF9001D2D28 /* BUIControl.m */,
 				3397B12E15FE0E7B001D2D28 /* BUIView.h */,
@@ -182,7 +182,7 @@
 				3397B11815FE0DE1001D2D28 /* AppDelegate.m in Sources */,
 				3397B12D15FE0DF9001D2D28 /* BUIControl.m in Sources */,
 				3397B13015FE0E7B001D2D28 /* BUIView.m in Sources */,
-				43EE156D1609CF6F00E2CF44 /* BNSObject.m in Sources */,
+				43EE156D1609CF6F00E2CF44 /* ZXObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -6,10 +6,10 @@
 //  Copyright (c) 2012年 张玺. All rights reserved.
 //
 
-#import "BNSObject.h"
+#import "ZXObject.h"
 #import <objc/runtime.h>
 
-@implementation NSObject(BNSObject)
+@implementation NSObject(ZXObject)
 
 +(void)perform:(void(^)())block1 withCompletionHandler:(void (^)())block2
 {
@@ -29,4 +29,18 @@
         });
     });
 }
+
+const char ZXObjectStoreKey;
+
+-(void)setZXObject:(id)obj
+{
+    objc_setAssociatedObject(self, &ZXObjectStoreKey, obj, OBJC_ASSOCIATION_COPY);
+}
+-(id)getZXObject
+{
+    return objc_getAssociatedObject(self, &ZXObjectStoreKey);
+}
+
+
+          
 @end
