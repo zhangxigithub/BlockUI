@@ -9,3 +9,4 @@
 
 #import "BUIView.h"
 #import "BUIControl.h"
+#import "BNSObject.h"

@@ -4,12 +4,21 @@ BlockUI
 UIControl use block
 去TMD delegate ,去TMD的 target,just use block.
 
-##support##
+##Support##
 * UIAlertView
 * UIActionSheet
 * UIControl
 
-##use##
+##Author##
+张玺
+<http://zhangxi.me>
+
+##Require##
+* ARC
+* iOS 4.0 or later
+
+##Use##
+![screen](http://2.zxapi.sinaapp.com/BlockUIscreen.png)
 
 ```
 #import "BlockUI.h"
