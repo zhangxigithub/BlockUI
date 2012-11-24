@@ -29,18 +29,39 @@
         });
     });
 }
+//======================
 
 const char ZXObjectStoreKey;
-
 -(void)setZXObject:(id)obj
 {
+
     objc_setAssociatedObject(self, &ZXObjectStoreKey, obj, OBJC_ASSOCIATION_COPY);
 }
 -(id)getZXObject
 {
     return objc_getAssociatedObject(self, &ZXObjectStoreKey);
 }
+//=======================
 
+const char ZXObjectDefaultEvent;
+-(void)handlerDefaultEventwithBlock:(id)block
+{
+    objc_setAssociatedObject(self, &ZXObjectDefaultEvent, block, OBJC_ASSOCIATION_COPY);
+}
+-(id)blockForDefaultEvent
+{
+    return objc_getAssociatedObject(self,&ZXObjectDefaultEvent);
+}
+const char ZXObjectSingleObjectEvent;
 
+-(void)receiveObject:(void(^)(id object))sendObject
+{
+    objc_setAssociatedObject(self, &ZXObjectSingleObjectEvent, sendObject, OBJC_ASSOCIATION_RETAIN);
+}
+-(void)sendObject:(id)object
+{
+    void(^block)(id object) = objc_getAssociatedObject(self,&ZXObjectSingleObjectEvent);
+    if(block != nil) block(object);
+}
           
 @end

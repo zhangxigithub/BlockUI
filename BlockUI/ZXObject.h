@@ -20,5 +20,12 @@
 -(void)setZXObject:(id)obj;
 -(id)getZXObject;
 
+//设置一个block作为回调
+-(void)handlerDefaultEventwithBlock:(id)block;
+-(id)blockForDefaultEvent;
+
+//send object
+-(void)receiveObject:(void(^)(id object))sendObject;
+-(void)sendObject:(id)object;
 
 @end

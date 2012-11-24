@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-
+#import "Machine.h"
 #import "BlockUI.h"
 
 @implementation AppDelegate
@@ -23,7 +23,17 @@
     [self.window makeKeyAndVisible];
     
     
+
     
+    Machine *machine = [[Machine alloc] init];
+
+    [machine receiveObject:^(id object) {
+        NSLog(@"~~~~~~~~%@",object);
+    }];
+    
+    [machine hello];
+    
+
     
     //***************
     //***************
