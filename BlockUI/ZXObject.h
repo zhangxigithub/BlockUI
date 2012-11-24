@@ -28,4 +28,10 @@
 -(void)receiveObject:(void(^)(id object))sendObject;
 -(void)sendObject:(id)object;
 
+
+//给UITableViewCell的数据存储计算过的行高的，防止重复计算
+//类似于setZXObject,不过这个意义更明确
+-(float)zxRowHeight;
+-(void)setZXRowHeight:(float)height;
+
 @end

@@ -34,8 +34,7 @@
 const char ZXObjectStoreKey;
 -(void)setZXObject:(id)obj
 {
-
-    objc_setAssociatedObject(self, &ZXObjectStoreKey, obj, OBJC_ASSOCIATION_COPY);
+    objc_setAssociatedObject(self, &ZXObjectStoreKey, obj, OBJC_ASSOCIATION_RETAIN);
 }
 -(id)getZXObject
 {
@@ -46,22 +45,41 @@ const char ZXObjectStoreKey;
 const char ZXObjectDefaultEvent;
 -(void)handlerDefaultEventwithBlock:(id)block
 {
-    objc_setAssociatedObject(self, &ZXObjectDefaultEvent, block, OBJC_ASSOCIATION_COPY);
+    objc_setAssociatedObject(self, &ZXObjectDefaultEvent, block, OBJC_ASSOCIATION_RETAIN);
 }
 -(id)blockForDefaultEvent
 {
     return objc_getAssociatedObject(self,&ZXObjectDefaultEvent);
 }
-const char ZXObjectSingleObjectEvent;
 
+const char ZXObjectSingleObjectEvent;
 -(void)receiveObject:(void(^)(id object))sendObject
 {
-    objc_setAssociatedObject(self, &ZXObjectSingleObjectEvent, sendObject, OBJC_ASSOCIATION_RETAIN);
+    objc_setAssociatedObject(self,
+                             &ZXObjectSingleObjectEvent,
+                             sendObject,
+                             OBJC_ASSOCIATION_RETAIN);
 }
 -(void)sendObject:(id)object
 {
     void(^block)(id object) = objc_getAssociatedObject(self,&ZXObjectSingleObjectEvent);
     if(block != nil) block(object);
 }
-          
+//=========================
+
+const char ZXRowHeightKey;
+-(float)zxRowHeight
+{
+    NSNumber *number = objc_getAssociatedObject(self,&ZXRowHeightKey);
+    if(number == nil) return -1;
+    return [number floatValue];
+}
+-(void)setZXRowHeight:(float)height
+{
+    objc_setAssociatedObject(self,
+                             &ZXRowHeightKey,
+                             [NSNumber numberWithFloat:height],
+                             OBJC_ASSOCIATION_RETAIN);
+}
+
 @end
