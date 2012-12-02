@@ -30,6 +30,19 @@
     [machine receiveObject:^(id object) {
         NSLog(@"~~~~~~~~%@",object);
     }];
+    [machine receiveObject:^(id object) {
+        NSLog(@"3:%@",object);
+    } withIdentifier:@"3"];
+    
+
+    
+    [machine handlerDefaultEventWithBlock:^(NSString *name,int age,BOOL sex){
+        
+        NSLog(@"\n name:%@ \n age:%d \n sex:%@",name,age,sex?@"male":@"female");
+    }];
+    
+    
+    
     
     [machine hello];
     

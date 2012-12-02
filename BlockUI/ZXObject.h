@@ -16,17 +16,30 @@
 +(void)perform:(void(^)())block1 withCompletionHandler:(void (^)())block2;
 -(void)perform:(void(^)())block1 withCompletionHandler:(void (^)())block2;
 
-//use ZXObject to deliver param(copy)
+
+//use ZXObject to deliver param(retain)
 -(void)setZXObject:(id)obj;
 -(id)getZXObject;
 
-//设置一个block作为回调
--(void)handlerDefaultEventwithBlock:(id)block;
+
+
+//默认block回调 key:zxDefaultEventHandler
+-(void)handlerDefaultEventWithBlock:(id)block;
 -(id)blockForDefaultEvent;
 
+//设置一个block作为回调
+-(void)handlerEventWithBlock:(id)block withIdentifier:(NSString *)identifier;
+-(id)blockForEventWithIdentifier:(NSString *)identifier;
+
 //send object
+//handle block with default identifier is @"ZXObjectSingleObjectDictionary".
 -(void)receiveObject:(void(^)(id object))sendObject;
 -(void)sendObject:(id)object;
+
+//tag can't be nil
+-(void)receiveObject:(void(^)(id object))sendObject withIdentifier:(NSString *)identifier;
+-(void)sendObject:(id)object withIdentifier:(NSString *)identifier;
+
 
 
 //给UITableViewCell的数据存储计算过的行高的，防止重复计算

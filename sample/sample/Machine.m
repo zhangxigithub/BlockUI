@@ -12,7 +12,12 @@
 
 -(void)hello
 {
-    [self sendObject:@"  ."];
+    [self sendObject:@"default object"];
+    [self sendObject:@"tag 3" withIdentifier:@"3"];
+    
+    void(^block)(NSString *,int,BOOL) = [self blockForDefaultEvent];
+    if(block != nil)
+        block(@"zhangxi",23,YES);
 }
 
 

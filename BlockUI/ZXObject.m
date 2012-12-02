@@ -42,29 +42,78 @@ const char ZXObjectStoreKey;
 }
 //=======================
 
-const char ZXObjectDefaultEvent;
--(void)handlerDefaultEventwithBlock:(id)block
+const char ZXObjectEventHandlerDictionary;
+
+
+-(void)handlerDefaultEventWithBlock:(id)block
 {
-    objc_setAssociatedObject(self, &ZXObjectDefaultEvent, block, OBJC_ASSOCIATION_RETAIN);
-}
--(id)blockForDefaultEvent
-{
-    return objc_getAssociatedObject(self,&ZXObjectDefaultEvent);
+    [self handlerEventWithBlock:block withIdentifier:@"zxDefaultEventHandler"];
 }
 
-const char ZXObjectSingleObjectEvent;
+
+-(id)blockForDefaultEvent
+{
+    return [self blockForEventWithIdentifier:@"zxDefaultEventHandler"];
+}
+
+-(void)handlerEventWithBlock:(id)block withIdentifier:(NSString *)identifier
+{
+    NSAssert(identifier != nil, @"identifier can't be nil.");
+    NSMutableDictionary *eventHandlerDictionary = objc_getAssociatedObject(self,&ZXObjectEventHandlerDictionary);
+    if(eventHandlerDictionary == nil)
+    {
+        eventHandlerDictionary = [[NSMutableDictionary alloc] init];
+        objc_setAssociatedObject(self, &ZXObjectEventHandlerDictionary, eventHandlerDictionary, OBJC_ASSOCIATION_RETAIN);
+    }
+    
+    [eventHandlerDictionary setObject:block forKey:identifier];
+}
+
+-(id)blockForEventWithIdentifier:(NSString *)identifier
+{
+    NSAssert(identifier != nil, @"identifier can't be nil.");
+    NSDictionary *eventHandlerDictionary = objc_getAssociatedObject(self,&ZXObjectEventHandlerDictionary);
+    if(eventHandlerDictionary == nil) return nil;
+    return [eventHandlerDictionary objectForKey:identifier];
+}
+
+//=======================
+const char ZXObjectSingleObjectDictionary;
+
 -(void)receiveObject:(void(^)(id object))sendObject
 {
-    objc_setAssociatedObject(self,
-                             &ZXObjectSingleObjectEvent,
-                             sendObject,
-                             OBJC_ASSOCIATION_RETAIN);
+    [self receiveObject:sendObject withIdentifier:@"ZXObjectSingleObjectDictionary"];
 }
 -(void)sendObject:(id)object
 {
-    void(^block)(id object) = objc_getAssociatedObject(self,&ZXObjectSingleObjectEvent);
-    if(block != nil) block(object);
+    [self sendObject:object withIdentifier:@"ZXObjectSingleObjectDictionary"];
 }
+
+-(void)receiveObject:(void(^)(id object))sendObject withIdentifier:(NSString *)identifier
+{
+    NSAssert(identifier != nil, @"identifier can't be nil.");
+    NSMutableDictionary *eventHandlerDictionary = objc_getAssociatedObject(self,&ZXObjectSingleObjectDictionary);
+    if(eventHandlerDictionary == nil)
+    {
+        eventHandlerDictionary = [[NSMutableDictionary alloc] init];
+        objc_setAssociatedObject(self, &ZXObjectSingleObjectDictionary, eventHandlerDictionary, OBJC_ASSOCIATION_RETAIN);
+    }
+    
+    [eventHandlerDictionary setObject:sendObject forKey:identifier];
+}
+
+-(void)sendObject:(id)object withIdentifier:(NSString *)identifier
+{
+    NSAssert(identifier != nil, @"identifier can't be nil.");
+
+    NSDictionary *eventHandlerDictionary = objc_getAssociatedObject(self,&ZXObjectSingleObjectDictionary);
+    if(eventHandlerDictionary == nil)
+        return;
+    
+    void(^block)(id object) =  [eventHandlerDictionary objectForKey:identifier];
+    block(object);
+}
+
 //=========================
 
 const char ZXRowHeightKey;
