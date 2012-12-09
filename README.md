@@ -1,17 +1,18 @@
 BlockUI
-=======
+========
 
-UIControl use block
-去TMD delegate ,去TMD的 target,just use block.
+BlockUI主要有两个功能:
 
-##Support##
-* UIAlertView
-* UIActionSheet
-* UIControl
+* 扩展UIControl,UIActionSheet,UIAlertView。使用block最为回调，简化调用流程，是代码在逻辑上更通顺。
+* 扩展NSObject,方便对象间通信。
+
 
 ##Author##
 张玺
-<http://zhangxi.me>
+
+微博:<http://weibo.com/zxrex>
+
+Home:<http://zhangxi.me>
 
 ##Require##
 * ARC
@@ -21,6 +22,7 @@ UIControl use block
 ![screen](http://2.zxapi.sinaapp.com/BlockUIscreen.png)
 
 ```
+
 #import "BlockUI.h"
 
 
