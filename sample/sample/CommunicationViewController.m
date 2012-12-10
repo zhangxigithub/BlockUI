@@ -16,6 +16,7 @@
 - (IBAction)showInput:(id)sender {
     
     InputViewController *input = [[InputViewController alloc] initWithNibName:@"InputViewController" bundle:nil];
+    input.navigationItem.title = @"input";
     
     
     //receive object with default identifier
@@ -29,6 +30,15 @@
          NSLog(@"[inputFinish]receive : %@",object);
     } withIdentifier:@"inputFinish"];
 
+    
+    [input handlerEventWithBlock:^(NSString *value1,NSString *value2){
+    
+        NSLog(@"%@",value1);
+        NSLog(@"%@",value2);
+    }
+                  withIdentifier:@"custom block"];
+    
+    
     
     [self.navigationController pushViewController:input animated:YES];
 

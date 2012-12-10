@@ -15,7 +15,6 @@
 		3397B11815FE0DE1001D2D28 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3397B11715FE0DE1001D2D28 /* AppDelegate.m */; };
 		3397B12D15FE0DF9001D2D28 /* BUIControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 3397B12A15FE0DF9001D2D28 /* BUIControl.m */; };
 		3397B13015FE0E7B001D2D28 /* BUIView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3397B12F15FE0E7B001D2D28 /* BUIView.m */; };
-		33B3CA82166109000005665D /* Machine.m in Sources */ = {isa = PBXBuildFile; fileRef = 33B3CA81166109000005665D /* Machine.m */; };
 		432CD0A81674660600F31998 /* BlockUIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 432CD0A61674660500F31998 /* BlockUIViewController.m */; };
 		432CD0A91674660600F31998 /* BlockUIViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 432CD0A71674660500F31998 /* BlockUIViewController.xib */; };
 		432CD0AD167469BB00F31998 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 432CD0AB167469BB00F31998 /* MenuViewController.m */; };
@@ -43,8 +42,6 @@
 		3397B12E15FE0E7B001D2D28 /* BUIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BUIView.h; sourceTree = "<group>"; };
 		3397B12F15FE0E7B001D2D28 /* BUIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BUIView.m; sourceTree = "<group>"; };
 		3397B13115FE1137001D2D28 /* BlockUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlockUI.h; sourceTree = "<group>"; };
-		33B3CA80166109000005665D /* Machine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Machine.h; sourceTree = "<group>"; };
-		33B3CA81166109000005665D /* Machine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Machine.m; sourceTree = "<group>"; };
 		432CD0A51674660500F31998 /* BlockUIViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlockUIViewController.h; sourceTree = "<group>"; };
 		432CD0A61674660500F31998 /* BlockUIViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlockUIViewController.m; sourceTree = "<group>"; };
 		432CD0A71674660500F31998 /* BlockUIViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BlockUIViewController.xib; sourceTree = "<group>"; };
@@ -120,8 +117,6 @@
 				432CD0B416746D0E00F31998 /* InputViewController.h */,
 				432CD0B516746D0E00F31998 /* InputViewController.m */,
 				432CD0B616746D0E00F31998 /* InputViewController.xib */,
-				33B3CA80166109000005665D /* Machine.h */,
-				33B3CA81166109000005665D /* Machine.m */,
 				3397B10E15FE0DE1001D2D28 /* Supporting Files */,
 			);
 			path = sample;
@@ -224,7 +219,6 @@
 				3397B12D15FE0DF9001D2D28 /* BUIControl.m in Sources */,
 				3397B13015FE0E7B001D2D28 /* BUIView.m in Sources */,
 				43EE156D1609CF6F00E2CF44 /* ZXObject.m in Sources */,
-				33B3CA82166109000005665D /* Machine.m in Sources */,
 				432CD0A81674660600F31998 /* BlockUIViewController.m in Sources */,
 				432CD0AD167469BB00F31998 /* MenuViewController.m in Sources */,
 				432CD0B216746CF300F31998 /* CommunicationViewController.m in Sources */,

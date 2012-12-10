@@ -17,7 +17,6 @@
 {
     [super viewDidLoad];
     
-    self.navigationItem.title = @"Block-UIControl";
     //***************
     //***************
     UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];

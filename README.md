@@ -22,7 +22,53 @@ Home:<http://zhangxi.me>
 ![screen](http://2.zxapi.sinaapp.com/BlockUIscreen.png)
 
 ```
+//in first object
+    InputViewController *input = [[InputViewController alloc] initWithNibName:@"InputViewController" bundle:nil];
+    input.navigationItem.title = @"input";
+    
+    
+    //receive object with default identifier
+    [input receiveObject:^(id object) {
+        _label.text = object;
+        NSLog(@"[default]receive : %@",object);
+    }];
+    
+    //receive object with custom identifier
+    [input receiveObject:^(id object) {
+         NSLog(@"[inputFinish]receive : %@",object);
+    } withIdentifier:@"inputFinish"];
 
+    
+    [input handlerEventWithBlock:^(NSString *value1,NSString *value2){
+    
+        NSLog(@"%@",value1);
+        NSLog(@"%@",value2);
+    }
+                  withIdentifier:@"custom block"];
+    
+    
+    
+    [self.navigationController pushViewController:input animated:YES];
+
+//in second object
+    //send object use default identifier
+    [self sendObject:_textFeild.text];
+    
+    //send object use custom identifier
+    [self sendObject:_textFeild.text
+      withIdentifier:@"inputFinish"];
+    
+    
+    void(^block)(NSString *,NSString *) = [self blockForEventWithIdentifier:@"custom block"];;
+    
+    block(@"I'm the first value",@"I'm the second value");
+    
+    
+```
+
+
+```
+//first of all
 #import "BlockUI.h"
 
 

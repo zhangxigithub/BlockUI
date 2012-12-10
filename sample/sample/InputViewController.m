@@ -27,6 +27,10 @@
       withIdentifier:@"inputFinish"];
     
     
+    void(^block)(NSString *,NSString *) = [self blockForEventWithIdentifier:@"custom block"];;
+    
+    block(@"I'm the first value",@"I'm the second value");
+    
     [self.navigationController popViewControllerAnimated:YES];
 }
 @end
